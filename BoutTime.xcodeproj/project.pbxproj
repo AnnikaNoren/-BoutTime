@@ -14,6 +14,7 @@
 		3158D6391E5B3DF500A14D41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3158D6371E5B3DF500A14D41 /* LaunchScreen.storyboard */; };
 		3158D6411E5B7B8A00A14D41 /* EventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3158D6401E5B7B8A00A14D41 /* EventProvider.swift */; };
 		31AF90C91E65D7B400585AC7 /* DisplayScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AF90C81E65D7B400585AC7 /* DisplayScoreViewController.swift */; };
+		31AF90CB1E6E09C500585AC7 /* WebDisplayEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AF90CA1E6E09C500585AC7 /* WebDisplayEventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3158D63A1E5B3DF500A14D41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3158D6401E5B7B8A00A14D41 /* EventProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventProvider.swift; sourceTree = "<group>"; };
 		31AF90C81E65D7B400585AC7 /* DisplayScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayScoreViewController.swift; path = ../DisplayScoreViewController.swift; sourceTree = "<group>"; };
+		31AF90CA1E6E09C500585AC7 /* WebDisplayEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebDisplayEventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				3158D62E1E5B3DF500A14D41 /* AppDelegate.swift */,
 				3158D6301E5B3DF500A14D41 /* ViewController.swift */,
 				31AF90C81E65D7B400585AC7 /* DisplayScoreViewController.swift */,
+				31AF90CA1E6E09C500585AC7 /* WebDisplayEventViewController.swift */,
 				3158D6321E5B3DF500A14D41 /* Main.storyboard */,
 				3158D6401E5B7B8A00A14D41 /* EventProvider.swift */,
 				310E9E2C1E621FDD009F7BFC /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31AF90CB1E6E09C500585AC7 /* WebDisplayEventViewController.swift in Sources */,
 				31AF90C91E65D7B400585AC7 /* DisplayScoreViewController.swift in Sources */,
 				3158D6411E5B7B8A00A14D41 /* EventProvider.swift in Sources */,
 				3158D6311E5B3DF500A14D41 /* ViewController.swift in Sources */,

@@ -19,13 +19,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label1" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfy-Pr-2ho">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="view1" text="Label1" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfy-Pr-2ho">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="AL3-oe-Wt6"/>
                                     <constraint firstAttribute="width" constant="284" id="kDX-rT-QN7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -45,13 +45,13 @@
                                     <action selector="moveEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7BQ-8n-TJL"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label2" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CL2-LZ-uez">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="view2" text="Label2" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CL2-LZ-uez">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="284" id="FJb-1D-E0Z"/>
                                     <constraint firstAttribute="height" constant="120" id="IcY-WV-lJ0"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -66,7 +66,7 @@
                                     <action selector="moveEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6ge-qA-v6R"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label3" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcI-eQ-QxM">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="view3" text="Label3" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcI-eQ-QxM">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="284" id="cmH-mc-xav"/>
@@ -87,7 +87,7 @@
                                     <action selector="moveEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CcD-La-YYz"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label4" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSN-pq-Fm8">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="view4" text="Label4" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSN-pq-Fm8">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="284" id="FQs-br-AHw"/>
@@ -196,6 +196,7 @@
                         <outlet property="label4" destination="eSN-pq-Fm8" id="xTf-AM-uB0"/>
                         <outlet property="messageLabel" destination="tPa-hK-3fv" id="pOd-1w-wnX"/>
                         <segue destination="pnI-dQ-cfV" kind="show" identifier="displayScoreSegue" id="Iik-fa-PBH"/>
+                        <segue destination="iDp-aU-FA5" kind="show" identifier="webDisplaySegue" id="cFq-jH-XSt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -259,7 +260,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mok-vV-rQe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="448.80000000000001" y="-30.134932533733135"/>
+            <point key="canvasLocation" x="482" y="219"/>
+        </scene>
+        <!--Web Display Event View Controller-->
+        <scene sceneID="KGV-EF-cbw">
+            <objects>
+                <viewController id="iDp-aU-FA5" customClass="WebDisplayEventViewController" customModule="BoutTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Svh-Mp-4nT"/>
+                        <viewControllerLayoutGuide type="bottom" id="enZ-lw-zUg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="osd-cz-1Th" customClass="WebDisplayEventController">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDK-yy-OSc">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="Wio-kg-Iyp"/>
+                                    <constraint firstAttribute="height" constant="63" id="hdt-Le-tpi"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="webview_bar"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="ePe-bN-7d7"/>
+                                </connections>
+                            </button>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YEh-56-QFk">
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="581" id="GdQ-bd-bPv"/>
+                                    <constraint firstAttribute="width" constant="343" id="vAa-dW-SB7"/>
+                                </constraints>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YEh-56-QFk" firstAttribute="leading" secondItem="osd-cz-1Th" secondAttribute="leading" id="20Q-JT-g1u"/>
+                            <constraint firstItem="hDK-yy-OSc" firstAttribute="top" secondItem="osd-cz-1Th" secondAttribute="top" id="Ds1-cl-lm2"/>
+                            <constraint firstItem="YEh-56-QFk" firstAttribute="top" secondItem="hDK-yy-OSc" secondAttribute="bottom" id="gU9-uA-gTY"/>
+                            <constraint firstItem="hDK-yy-OSc" firstAttribute="leading" secondItem="osd-cz-1Th" secondAttribute="leading" id="xzw-s2-45g"/>
+                            <constraint firstAttribute="trailing" secondItem="hDK-yy-OSc" secondAttribute="trailing" id="zIa-wQ-1fZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="WebViewLabel" destination="YEh-56-QFk" id="jr8-H2-Emm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yq9-vR-WZo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="456.80000000000001" y="-509.59520239880067"/>
         </scene>
     </scenes>
     <resources>
@@ -272,5 +320,9 @@
         <image name="up_full_selected" width="158" height="457"/>
         <image name="up_half" width="158" height="229"/>
         <image name="up_half_selected" width="158" height="229"/>
+        <image name="webview_bar" width="1333" height="167"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ePe-bN-7d7"/>
+    </inferredMetricsTieBreakers>
 </document>

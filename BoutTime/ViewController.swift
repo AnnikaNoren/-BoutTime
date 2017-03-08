@@ -11,7 +11,6 @@ import Foundation
 import GameKit
 import QuartzCore
 
-//var correctAnswers: Int = 0
 
 class ViewController: UIViewController {
 
@@ -27,6 +26,12 @@ class ViewController: UIViewController {
     var yearOfEvent2: Int = 0
     var yearOfEvent3: Int = 0
     var yearOfEvent4: Int = 0
+    var urlOfEvent1: String = ""
+    var urlOfEvent2: String = ""
+    var urlOfEvent3: String = ""
+    var urlOfEvent4: String = ""
+    var urlString: String = ""
+    var urlOfEvent: String = ""
     
     var arrayOfEventYears = [Int]()
     var correctOrderOfYears = [Int]()
@@ -53,34 +58,78 @@ class ViewController: UIViewController {
     var invertedTimerCounter = 0
 
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //Tap gestures on 4 labels
+        let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(self.tapForMoreInfo(_:)))
+        label1.addGestureRecognizer(tapGesture1)
+        label1.isUserInteractionEnabled = true
+
+        
+        let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(self.tapForMoreInfo(_:)))
+        label2.addGestureRecognizer(tapGesture2)
+        label2.isUserInteractionEnabled = true
+        
+        let tapGesture3 = UITapGestureRecognizer(target: self, action: #selector(self.tapForMoreInfo(_:)))
+        label3.addGestureRecognizer(tapGesture3)
+        label3.isUserInteractionEnabled = true
+        
+        let tapGesture4 = UITapGestureRecognizer(target: self, action: #selector(self.tapForMoreInfo(_:)))
+        label4.addGestureRecognizer(tapGesture4)
+        label4.isUserInteractionEnabled = true
+
+        //play the game
         displayEvent()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "displayScoreSegue"{
+            
+            let DestViewController1 : DisplayScoreViewController = segue.destination as! DisplayScoreViewController
+            DestViewController1.correctAnswer = correctAnswers
+            
+        } else if segue.identifier == "webDisplaySegue"{
+            
+            let DestViewController2 : WebDisplayEventViewController = segue.destination as! WebDisplayEventViewController
+            urlString = urlOfEvent
+            DestViewController2.urlInfo = urlString
+            
+        }
+    }
+    
+    func tapForMoreInfo(_ sender: UITapGestureRecognizer){
 
+        if (sender.view!.restorationIdentifier == "view1") {
+            urlOfEvent = urlOfEvent1
+            print("View1 is tapped! \(urlOfEvent1)")
+        } else if (sender.view!.restorationIdentifier == "view2") {
+            urlOfEvent = urlOfEvent2
+            print("View2 is tapped!")
+        } else if (sender.view!.restorationIdentifier == "view3") {
+            urlOfEvent = urlOfEvent3
+            print("View3 is tapped")
+        } else if (sender.view!.restorationIdentifier == "view4") {
+            urlOfEvent = urlOfEvent4
+            print ("view4 is tapped")
+        }
+        performSegue(withIdentifier: "webDisplaySegue", sender: self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let DestViewController : DisplayScoreViewController = segue.destination as! DisplayScoreViewController
-        
-        DestViewController.correctAnswer = correctAnswers
-    }
-    
-    
+
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         checkAnswer()
     }
     
     func displayEvent(){
-        
         repeat {
-        
-        sleep(1)
             
         arrayOfEventYears.removeAll()
         correctOrderOfYears.removeAll()
@@ -108,6 +157,7 @@ class ViewController: UIViewController {
         //get the 4 events and populate the labels
         var event = historicalEvents.events[usedIndexes[0]]
         yearOfEvent1 = event.year
+        urlOfEvent1 = event.url
         arrayOfEventYears.append(yearOfEvent1)
         label1.layer.cornerRadius = 5.0
         label1.clipsToBounds = true
@@ -139,7 +189,6 @@ class ViewController: UIViewController {
         //sort array of events into correct order
         correctOrderOfYears = arrayOfEventYears.sorted()
         } while (correctOrderOfYears == arrayOfEventYears)
-        
     }
 
     
@@ -168,7 +217,6 @@ class ViewController: UIViewController {
         }
 
         orderOfChoices += [yearOfEvent1, yearOfEvent2, yearOfEvent3, yearOfEvent4]
-
     }
     
     func checkAnswer() {
@@ -176,7 +224,8 @@ class ViewController: UIViewController {
         timer.invalidate()
         
         //Choosing not to do webview
-        //messageLabel.text = "Tap event to learn more"
+        messageLabel.text = "Tap event to learn more"
+ 
         
         if (orderOfChoices == correctOrderOfYears){
             gameButton.setImage(#imageLiteral(resourceName: "next_round_success"), for: .normal)
@@ -197,6 +246,7 @@ class ViewController: UIViewController {
         
         nextRound()
     }
+
     
     func nextRound() {
         if roundsPlayed == roundsPerGame {

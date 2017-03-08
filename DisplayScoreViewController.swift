@@ -12,6 +12,8 @@ import UIKit
 class DisplayScoreViewController: UIViewController {
 
     @IBOutlet weak var displayScore: UILabel!
+    
+    
     //this is correctAnswer not correctAnswerS
     var correctAnswer = Int()
     
@@ -20,7 +22,6 @@ class DisplayScoreViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //displayScore.text = "\(correctAnswers)/6"
         displayScore.text = "\(correctAnswer)/6"
     }
 
