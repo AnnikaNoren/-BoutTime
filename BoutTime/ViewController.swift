@@ -101,20 +101,26 @@ class ViewController: UIViewController {
     }
     
     func tapForMoreInfo(_ sender: UITapGestureRecognizer){
-
         if (sender.view!.restorationIdentifier == "view1") {
             urlOfEvent = urlOfEvent1
-            print("View1 is tapped! \(urlOfEvent1)")
-        } else if (sender.view!.restorationIdentifier == "view2") {
-            urlOfEvent = urlOfEvent2
-            print("View2 is tapped!")
-        } else if (sender.view!.restorationIdentifier == "view3") {
-            urlOfEvent = urlOfEvent3
-            print("View3 is tapped")
-        } else if (sender.view!.restorationIdentifier == "view4") {
-            urlOfEvent = urlOfEvent4
-            print ("view4 is tapped")
+            //performSegue(withIdentifier: "webDisplaySegue", sender: self)
         }
+        
+        if (sender.view!.restorationIdentifier == "view2") {
+            urlOfEvent = urlOfEvent2
+            //performSegue(withIdentifier: "webDisplaySegue", sender: self)
+        }
+        
+        if (sender.view!.restorationIdentifier == "view3") {
+            urlOfEvent = urlOfEvent3
+            //performSegue(withIdentifier: "webDisplaySegue", sender: self)
+        }
+        
+        if (sender.view!.restorationIdentifier == "view4") {
+            urlOfEvent = urlOfEvent4
+            //performSegue(withIdentifier: "webDisplaySegue", sender: self)
+        }
+        
         performSegue(withIdentifier: "webDisplaySegue", sender: self)
     }
     
@@ -165,6 +171,7 @@ class ViewController: UIViewController {
         
         event = historicalEvents.events[usedIndexes[1]]
         yearOfEvent2 = event.year
+        urlOfEvent2 = event.url
         arrayOfEventYears.append(yearOfEvent2)
         label2.layer.cornerRadius = 5.0
         label2.clipsToBounds = true
@@ -173,6 +180,7 @@ class ViewController: UIViewController {
         
         event = historicalEvents.events[usedIndexes[2]]
         yearOfEvent3 = event.year
+        urlOfEvent3 = event.url
         arrayOfEventYears.append(yearOfEvent3)
         label3.layer.cornerRadius = 5.0
         label3.clipsToBounds = true
@@ -181,6 +189,7 @@ class ViewController: UIViewController {
         
         event = historicalEvents.events[usedIndexes[3]]
         yearOfEvent4 = event.year
+        urlOfEvent4 = event.url
         arrayOfEventYears.append(yearOfEvent4)
         label4.layer.cornerRadius = 5.0
         label4.clipsToBounds = true
@@ -222,11 +231,8 @@ class ViewController: UIViewController {
     func checkAnswer() {
         roundsPlayed += 1
         timer.invalidate()
-        
-        //Choosing not to do webview
         messageLabel.text = "Tap event to learn more"
  
-        
         if (orderOfChoices == correctOrderOfYears){
             gameButton.setImage(#imageLiteral(resourceName: "next_round_success"), for: .normal)
             correctAnswers += 1
