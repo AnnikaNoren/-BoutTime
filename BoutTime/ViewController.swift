@@ -103,22 +103,18 @@ class ViewController: UIViewController {
     func tapForMoreInfo(_ sender: UITapGestureRecognizer){
         if (sender.view!.restorationIdentifier == "view1") {
             urlOfEvent = urlOfEvent1
-            //performSegue(withIdentifier: "webDisplaySegue", sender: self)
         }
         
         if (sender.view!.restorationIdentifier == "view2") {
             urlOfEvent = urlOfEvent2
-            //performSegue(withIdentifier: "webDisplaySegue", sender: self)
         }
         
         if (sender.view!.restorationIdentifier == "view3") {
             urlOfEvent = urlOfEvent3
-            //performSegue(withIdentifier: "webDisplaySegue", sender: self)
         }
         
         if (sender.view!.restorationIdentifier == "view4") {
             urlOfEvent = urlOfEvent4
-            //performSegue(withIdentifier: "webDisplaySegue", sender: self)
         }
         
         performSegue(withIdentifier: "webDisplaySegue", sender: self)
@@ -208,21 +204,27 @@ class ViewController: UIViewController {
         if (sender.tag == 0){
             swap(&label1.text, &label2.text)
             swap(&yearOfEvent1, &yearOfEvent2)
+            swap(&urlOfEvent1, &urlOfEvent2)
         } else if (sender.tag == 1){
             swap(&label2.text, &label1.text)
             swap(&yearOfEvent2, &yearOfEvent1)
+            swap(&urlOfEvent2, &urlOfEvent1)
         } else if (sender.tag == 2){
             swap(&label2.text, &label3.text)
             swap(&yearOfEvent2, &yearOfEvent3)
+            swap(&urlOfEvent2, &urlOfEvent3)
         } else if (sender.tag == 3){
             swap(&label3.text, &label2.text)
             swap(&yearOfEvent3, &yearOfEvent2)
+            swap(&urlOfEvent3, &urlOfEvent2)
         } else if (sender.tag == 4){
             swap(&label3.text, &label4.text)
             swap(&yearOfEvent3, &yearOfEvent4)
+            swap(&urlOfEvent3, &urlOfEvent4)
         } else if (sender.tag == 5){
             swap(&label4.text, &label3.text)
             swap(&yearOfEvent4, &yearOfEvent3)
+            swap(&urlOfEvent4, &urlOfEvent3)
         }
 
         orderOfChoices += [yearOfEvent1, yearOfEvent2, yearOfEvent3, yearOfEvent4]
